@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_order_app/home/food_page_body.dart';
 import 'package:food_order_app/utils/colors.dart';
 import 'package:food_order_app/widgets/big_text.dart';
 import 'package:food_order_app/widgets/small_text.dart';
@@ -29,9 +30,14 @@ class _MainFoodPageState extends State<MainFoodPage> {
                         text: 'Nigeria',
                         color: AppColors.mainColor,
                       ),
-                      SmallText(
-                        text: 'City',
-                        color: Colors.black,
+                      Row(
+                        children: [
+                          SmallText(
+                            text: 'City',
+                            color: Colors.black,
+                          ),
+                          const Icon(Icons.arrow_drop_down_circle_rounded)
+                        ],
                       )
                     ],
                   ),
@@ -39,16 +45,17 @@ class _MainFoodPageState extends State<MainFoodPage> {
                     child: Container(
                       height: 45,
                       width: 45,
-                      child: const Icon(Icons.search, color: Colors.white),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
                           color: AppColors.mainColor),
+                      child: const Icon(Icons.search, color: Colors.white),
                     ),
                   ),
                 ],
               ),
             ),
           ),
+          FoodPageBody()
         ],
       ),
     );
