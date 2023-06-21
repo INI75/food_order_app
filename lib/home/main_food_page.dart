@@ -25,6 +25,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       BigText(
                         text: 'Nigeria',
