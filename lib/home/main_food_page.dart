@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_order_app/home/food_page_body.dart';
 import 'package:food_order_app/utils/colors.dart';
+import 'package:food_order_app/utils/dimensions.dart';
 import 'package:food_order_app/widgets/big_text.dart';
 import 'package:food_order_app/widgets/small_text.dart';
 
@@ -19,12 +20,12 @@ class _MainFoodPageState extends State<MainFoodPage> {
         children: [
           Container(
             child: Container(
-              margin: const EdgeInsets.only(top: 45, bottom: 15),
+              margin: EdgeInsets.only(top: Dimensions.heightP(.04), bottom: 15),
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
+                  const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       BigText(
@@ -37,17 +38,18 @@ class _MainFoodPageState extends State<MainFoodPage> {
                             text: 'City',
                             color: Colors.black,
                           ),
-                          const Icon(Icons.arrow_drop_down_circle_rounded)
+                          Icon(Icons.arrow_drop_down_rounded)
                         ],
                       )
                     ],
                   ),
                   Center(
                     child: Container(
-                      height: 45,
-                      width: 45,
+                      height: Dimensions.heightP(0.070), // 45,
+                      width: Dimensions.heightP(0.070), //45
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
+                          borderRadius:
+                              BorderRadius.circular(Dimensions.heightP(0.02)),
                           color: AppColors.mainColor),
                       child: const Icon(Icons.search, color: Colors.white),
                     ),
@@ -56,7 +58,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
               ),
             ),
           ),
-          FoodPageBody()
+          const FoodPageBody()
         ],
       ),
     );

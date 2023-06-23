@@ -1,6 +1,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:food_order_app/utils/colors.dart';
+import 'package:food_order_app/utils/dimensions.dart';
 import 'package:food_order_app/widgets/big_text.dart';
 import 'package:food_order_app/widgets/icon_and_text_widget.dart';
 import 'package:food_order_app/widgets/small_text.dart';
@@ -42,8 +43,12 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
-          height: 320,
+        Container(
+          // color: Colors.amber,
+
+          // color: AppColors.paraColor,
+          // height: 320,
+          height: Dimensions.heightP(.34),
           child: PageView.builder(
             controller: pagecontroller,
             itemCount: 5,
@@ -62,6 +67,33 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             activeShape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0)),
           ),
+        ),
+        const ResponsiveSizedBox(
+          height: 0.015,
+        ),
+        Container(
+          margin: EdgeInsets.only(left: Dimensions.widthP(.04)),
+          child: const Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              BigText(text: 'Popular', color: Colors.black),
+              SizedBox(width: 10),
+              Padding(
+                padding: EdgeInsets.only(bottom: 4),
+                child: SmallText(text: ': Food pairing'),
+              ),
+            ],
+          ),
+        ),
+        ListView.builder(
+          itemCount: 20,
+          itemBuilder: (context, index) {
+            return Container(
+              height: 23,
+              width: 200,
+              color: Colors.amber,
+            );
+          },
         )
       ],
     );
@@ -97,10 +129,11 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       child: Stack(
         children: [
           Container(
-            height: 220,
+            // height: 220,
+            height: Dimensions.heightP(.25),
             margin: const EdgeInsets.symmetric(horizontal: 10),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(Dimensions.heightP(0.03)),
               color: index.isEven ? AppColors.mainColor : AppColors.paraColor,
               image: const DecorationImage(
                   image: AssetImage('assets/image/food0.png'),
@@ -110,14 +143,11 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: 120,
-              margin: const EdgeInsets.only(
-                left: 30,
-                right: 30,
-                bottom: 30,
-              ),
+              // height: 120,
+              height: Dimensions.heightP(.145),
+              margin: const EdgeInsets.only(left: 30, right: 30, bottom: 10),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(Dimensions.heightP(0.02)),
                 color: Colors.white,
                 boxShadow: const [
                   BoxShadow(
@@ -143,32 +173,34 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      BigText(
+                      const BigText(
                         text: 'Chinese Side',
                         color: Colors.black,
                       ),
-                      const SizedBox(height: 10),
+                      const ResponsiveSizedBox(height: .01),
                       Row(
                         children: [
                           Wrap(
                             children: List.generate(
                                 5,
-                                (index) => Icon(
+                                (index) => const Icon(
                                       Icons.star,
                                       color: AppColors.mainColor,
                                       size: 15,
                                     )),
                           ),
                           const SizedBox(width: 10),
-                          SmallText(text: '4.5'),
+                          const SmallText(text: '4.5'),
                           const SizedBox(width: 10),
-                          SmallText(text: '1287'),
+                          const SmallText(text: '1287'),
                           const SizedBox(width: 10),
-                          SmallText(text: 'Comments'),
+                          const SmallText(text: 'Comments'),
                         ],
                       ),
-                      const SizedBox(height: 20),
-                      Row(
+                      const ResponsiveSizedBox(height: .015),
+                      // const SizedBox(height: 20),
+                      // Dimensions.sizeboxR(heightPercentage: .02),
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           IconAndTextWidget(
