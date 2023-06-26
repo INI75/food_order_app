@@ -4,6 +4,7 @@ import 'package:food_order_app/utils/colors.dart';
 import 'package:food_order_app/utils/dimensions.dart';
 import 'package:food_order_app/widgets/big_text.dart';
 import 'package:food_order_app/widgets/icon_and_text_widget.dart';
+import 'package:food_order_app/widgets/item_card.dart';
 import 'package:food_order_app/widgets/small_text.dart';
 
 class FoodPageBody extends StatefulWidget {
@@ -85,15 +86,16 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             ],
           ),
         ),
-        ListView.builder(
-          itemCount: 20,
-          itemBuilder: (context, index) {
-            return Container(
-              height: 23,
-              width: 200,
-              color: Colors.amber,
-            );
-          },
+        Container(
+          margin: EdgeInsets.symmetric(horizontal: Dimensions.widthP(.04)),
+          height: Dimensions.heightP(.7),
+          child: ListView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: 20,
+            itemBuilder: (context, index) {
+              return ItemCard();
+            },
+          ),
         )
       ],
     );
