@@ -1,5 +1,6 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:food_order_app/Screens/Food/popular_food_details.dart';
 import 'package:food_order_app/utils/colors.dart';
 import 'package:food_order_app/utils/dimensions.dart';
 import 'package:food_order_app/widgets/big_text.dart';
@@ -54,7 +55,11 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             controller: pagecontroller,
             itemCount: 5,
             itemBuilder: (context, position) {
-              return _buildPageItem(position);
+              return GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, PopularFoodDetails.routeName);
+                  },
+                  child: _buildPageItem(position));
             },
           ),
         ),
@@ -86,16 +91,13 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             ],
           ),
         ),
-        Container(
-          margin: EdgeInsets.symmetric(horizontal: Dimensions.widthP(.04)),
-          height: Dimensions.heightP(.7),
-          child: ListView.builder(
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: 20,
-            itemBuilder: (context, index) {
-              return ItemCard();
-            },
-          ),
+        ListView.builder(
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: 20,
+          shrinkWrap: true,
+          itemBuilder: (context, index) {
+            return const ItemCard();
+          },
         )
       ],
     );

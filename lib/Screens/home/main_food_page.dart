@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_order_app/home/food_page_body.dart';
+import 'package:food_order_app/Screens/home/food_page_body.dart';
 import 'package:food_order_app/utils/colors.dart';
 import 'package:food_order_app/utils/dimensions.dart';
 import 'package:food_order_app/widgets/big_text.dart';
@@ -45,8 +45,8 @@ class _MainFoodPageState extends State<MainFoodPage> {
                   ),
                   Center(
                     child: Container(
-                      height: Dimensions.heightP(0.070), // 45,
-                      width: Dimensions.heightP(0.070), //45
+                      height: Dimensions.heightP(0.050), // 45,
+                      width: Dimensions.heightP(0.050), //45
                       decoration: BoxDecoration(
                           borderRadius:
                               BorderRadius.circular(Dimensions.heightP(0.02)),

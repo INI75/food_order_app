@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_order_app/home/main_food_page.dart';
+import 'package:food_order_app/Screens/Food/popular_food_details.dart';
+import 'package:food_order_app/Screens/home/main_food_page.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -20,6 +21,9 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const MainFoodPage(),
+      routes: {
+        PopularFoodDetails.routeName: (context) => const PopularFoodDetails(),
+      },
     );
   }
 }

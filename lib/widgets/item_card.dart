@@ -12,18 +12,21 @@ class ItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 8),
+      margin: EdgeInsets.only(
+          bottom: 8,
+          left: Dimensions.widthP(.04),
+          right: Dimensions.widthP(.04)),
       child: Row(
         children: [
           Container(
-            height: 110,
-            width: 120,
+            height: Dimensions.heightP(.14),
+            width: Dimensions.widthP(.32),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(
                 Dimensions.heightP(.02),
               ),
               // color: Colors.white38,
-              image: DecorationImage(
+              image: const DecorationImage(
                   image: AssetImage('assets/image/food0.png'),
                   fit: BoxFit.cover),
             ),
@@ -41,35 +44,40 @@ class ItemCard extends StatelessWidget {
                         Dimensions.heightP(.02),
                       )),
                   color: Colors.white),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  BigText(
-                    text: 'Nutritious fruit meal in China',
-                    color: Colors.black,
-                  ),
-                  SmallText(text: 'With Chinese characteristics'),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconAndTextWidget(
-                        text: 'Normal',
-                        icon: Icons.circle_sharp,
-                        iconcolor: AppColors.iconColor1,
-                      ),
-                      IconAndTextWidget(
-                        text: '1.7 km',
-                        icon: Icons.location_on,
-                        iconcolor: AppColors.mainColor,
-                      ),
-                      IconAndTextWidget(
-                        text: '32 min',
-                        icon: Icons.access_time_rounded,
-                        iconcolor: AppColors.iconColor2,
-                      ),
-                    ],
-                  )
-                ],
+              child: const Padding(
+                padding: EdgeInsets.all(4.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    BigText(
+                      text: 'Nutritious fruit meal in China',
+                      color: Colors.black,
+                    ),
+                    ResponsiveSizedBox(height: .015),
+                    SmallText(text: 'With Chinese characteristics'),
+                    ResponsiveSizedBox(height: .015),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        IconAndTextWidget(
+                          text: 'Normal',
+                          icon: Icons.circle_sharp,
+                          iconcolor: AppColors.iconColor1,
+                        ),
+                        IconAndTextWidget(
+                          text: '1.7 km',
+                          icon: Icons.location_on,
+                          iconcolor: AppColors.mainColor,
+                        ),
+                        IconAndTextWidget(
+                          text: '32 min',
+                          icon: Icons.access_time_rounded,
+                          iconcolor: AppColors.iconColor2,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
           )
