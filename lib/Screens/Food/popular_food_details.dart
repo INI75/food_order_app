@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:food_order_app/utils/colors.dart';
 import 'package:food_order_app/utils/dimensions.dart';
+import 'package:food_order_app/widgets/app_column.dart';
 import 'package:food_order_app/widgets/app_icon_class.dart';
+import 'package:food_order_app/widgets/big_text.dart';
+import 'package:food_order_app/widgets/icon_and_text_widget.dart';
+
+import '../../widgets/small_text.dart';
 
 class PopularFoodDetails extends StatelessWidget {
   static const routeName = '/popularFoodDetails';
@@ -41,18 +47,48 @@ class PopularFoodDetails extends StatelessWidget {
         ),
         Positioned(
           left: 0,
-          top: Dimensions.heightP(.4),
+          top: Dimensions.heightP(.37),
           right: 0,
+          bottom: 0,
           child: Container(
-            padding: EdgeInsets.only(
-                left: Dimensions.widthP(.04),
-                right: Dimensions.widthP(.04),
-                top: Dimensions.heightP(.09)),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(.02), color: Colors.white),
-          ),
+              padding: EdgeInsets.only(
+                  left: Dimensions.widthP(.04),
+                  right: Dimensions.widthP(.04),
+                  top: Dimensions.heightP(.02)),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(Dimensions.heightP(.03)),
+                      topRight: Radius.circular(Dimensions.heightP(.03))),
+                  color: Colors.white),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  AppColumn(
+                    text: 'Chinese Side',
+                  ),
+                  ResponsiveSizedBox(height: .025),
+                  BigText(
+                    text: 'Introduce',
+                    color: Colors.black,
+                  )
+                ],
+              )),
         ),
       ]),
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.symmetric(
+            vertical: Dimensions.heightP(.03),
+            horizontal: Dimensions.widthP(.03)),
+        height: Dimensions.heightP(.15),
+        // height: 120,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: AppColors.buttonBackgroundColor,
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(Dimensions.heightP(.04)),
+              topRight: Radius.circular(Dimensions.heightP(.04))),
+        ),
+      ),
     );
   }
 }

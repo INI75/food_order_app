@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:food_order_app/Screens/Food/popular_food_details.dart';
 import 'package:food_order_app/utils/colors.dart';
 import 'package:food_order_app/utils/dimensions.dart';
+import 'package:food_order_app/widgets/app_column.dart';
 import 'package:food_order_app/widgets/big_text.dart';
 import 'package:food_order_app/widgets/icon_and_text_widget.dart';
 import 'package:food_order_app/widgets/item_card.dart';
 import 'package:food_order_app/widgets/small_text.dart';
+import 'package:get/get.dart';
 
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({super.key});
@@ -174,58 +176,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     left: 15,
                     right: 15,
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const BigText(
-                        text: 'Chinese Side',
-                        color: Colors.black,
-                      ),
-                      const ResponsiveSizedBox(height: .01),
-                      Row(
-                        children: [
-                          Wrap(
-                            children: List.generate(
-                                5,
-                                (index) => const Icon(
-                                      Icons.star,
-                                      color: AppColors.mainColor,
-                                      size: 15,
-                                    )),
-                          ),
-                          const SizedBox(width: 10),
-                          const SmallText(text: '4.5'),
-                          const SizedBox(width: 10),
-                          const SmallText(text: '1287'),
-                          const SizedBox(width: 10),
-                          const SmallText(text: 'Comments'),
-                        ],
-                      ),
-                      const ResponsiveSizedBox(height: .015),
-                      // const SizedBox(height: 20),
-                      // Dimensions.sizeboxR(heightPercentage: .02),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          IconAndTextWidget(
-                            text: 'Normal',
-                            icon: Icons.circle_sharp,
-                            iconcolor: AppColors.iconColor1,
-                          ),
-                          IconAndTextWidget(
-                            text: '1.7 km',
-                            icon: Icons.location_on,
-                            iconcolor: AppColors.mainColor,
-                          ),
-                          IconAndTextWidget(
-                            text: '32 min',
-                            icon: Icons.access_time_rounded,
-                            iconcolor: AppColors.iconColor2,
-                          ),
-                        ],
-                      )
-                    ],
-                  )),
+                  child: AppColumn(text: 'Chinese Side')),
             ),
           )
         ],
