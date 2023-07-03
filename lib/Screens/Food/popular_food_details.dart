@@ -4,9 +4,7 @@ import 'package:food_order_app/utils/dimensions.dart';
 import 'package:food_order_app/widgets/app_column.dart';
 import 'package:food_order_app/widgets/app_icon_class.dart';
 import 'package:food_order_app/widgets/big_text.dart';
-import 'package:food_order_app/widgets/icon_and_text_widget.dart';
-
-import '../../widgets/small_text.dart';
+import 'package:food_order_app/widgets/expandable_text.dart';
 
 class PopularFoodDetails extends StatelessWidget {
   static const routeName = '/popularFoodDetails';
@@ -15,6 +13,7 @@ class PopularFoodDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Stack(children: [
         Positioned(
           left: 0,
@@ -60,7 +59,7 @@ class PopularFoodDetails extends StatelessWidget {
                       topLeft: Radius.circular(Dimensions.heightP(.03)),
                       topRight: Radius.circular(Dimensions.heightP(.03))),
                   color: Colors.white),
-              child: Column(
+              child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   AppColumn(
@@ -70,6 +69,14 @@ class PopularFoodDetails extends StatelessWidget {
                   BigText(
                     text: 'Introduce',
                     color: Colors.black,
+                  ),
+                  ResponsiveSizedBox(height: .025),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: ExpandableTextWidget(
+                          text:
+                              'This is dummy data This is dummy dataThis is dummy dataThis is dummy dataThis is dummy dataThis is dummy dataThis is dummy dataThis is dummy dataThis is dummy dataThis is dummy dataThis is dummy dataThis is dummy dataThiaThis is dummy dataThis is dummy dataThis is dummy dataThis is dummy dataThis is dummy dataThis is dummy dataThis is dummy dataThis is dummy dataThis is dummy dataThis is dummy dataThis is dummy dataThis is dummy dataThis is dummy dat'),
+                    ),
                   )
                 ],
               )),
@@ -88,6 +95,58 @@ class PopularFoodDetails extends StatelessWidget {
               topLeft: Radius.circular(Dimensions.heightP(.04)),
               topRight: Radius.circular(Dimensions.heightP(.04))),
         ),
+
+        child:
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          Container(
+            height: Dimensions.heightP(.07),
+            width: Dimensions.widthP(.34),
+            padding: EdgeInsets.symmetric(
+                horizontal: Dimensions.widthP(.02),
+                vertical: Dimensions.heightP(.02)),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(
+                Dimensions.heightP(0.02),
+              ),
+            ),
+            child: const Row(children: [
+              Icon(
+                Icons.remove,
+                color: AppColors.signColor,
+              ),
+              ResponsiveSizedBox(
+                width: .069,
+              ),
+              BigText(
+                text: '0',
+                color: Colors.black,
+              ),
+              ResponsiveSizedBox(
+                width: .069,
+              ),
+              Icon(
+                Icons.add,
+                color: AppColors.signColor,
+              )
+            ]),
+          ),
+          Container(
+            height: Dimensions.heightP(.085),
+            width: Dimensions.widthP(.4),
+            padding: EdgeInsets.symmetric(
+                horizontal: Dimensions.widthP(.02),
+                vertical: Dimensions.heightP(.02)),
+            decoration: BoxDecoration(
+              color: AppColors.mainColor,
+              borderRadius: BorderRadius.circular(
+                Dimensions.heightP(0.02),
+              ),
+            ),
+            alignment: Alignment.center,
+            child: BigText(text: '\$ 10 | add to cart', color: Colors.white),
+          )
+        ]),
       ),
     );
   }
