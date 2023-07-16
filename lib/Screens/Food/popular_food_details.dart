@@ -144,7 +144,7 @@ class PopularFoodDetails extends StatelessWidget {
               ),
             ),
             alignment: Alignment.center,
-            child: BigText(text: '\$ 10 | add to cart', color: Colors.white),
+            child: const BigText(text: '\$ 10 | add to cart', color: Colors.white),
           )
         ]),
       ),

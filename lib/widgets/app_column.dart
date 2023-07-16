@@ -44,7 +44,7 @@ class AppColumn extends StatelessWidget {
         const ResponsiveSizedBox(height: .015),
         // const SizedBox(height: 20),
         // Dimensions.sizeboxR(heightPercentage: .02),
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconAndTextWidget(
