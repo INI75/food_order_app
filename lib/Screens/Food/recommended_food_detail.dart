@@ -89,27 +89,96 @@ class RecommendFoodDetail extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: Column(mainAxisSize: MainAxisSize.min, children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            AppIcon(
-              icon: Icons.remove,
-              backgroundcolor: AppColors.mainColor,
-              iconcolor: Colors.white,
-              // size: Dimensions.heightP(0.05),
-              iconsize: Dimensions.heightP(0.035),
-              function: () {},
-            ),
-            AppIcon(
-              icon: Icons.add,
-              backgroundcolor: AppColors.mainColor,
-              iconcolor: Colors.white,
-              // size: Dimensions.heightP(0.05),
-              iconsize: Dimensions.heightP(0.035),
-              function: () {},
-            ),
-          ],
-        )
+        Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: Dimensions.widthP(
+                .04,
+              ),
+              vertical: Dimensions.heightP(.02)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              AppIcon(
+                icon: Icons.remove,
+                backgroundcolor: AppColors.mainColor,
+                iconcolor: Colors.white,
+                // size: Dimensions.heightP(0.05),
+                iconsize: Dimensions.heightP(0.035),
+                function: () {},
+              ),
+
+//
+
+              BigText(
+                text: '\$ 12.999   X  0',
+                size: Dimensions.heightP(.04),
+                color: Colors.black,
+              ),
+
+//
+
+              AppIcon(
+                icon: Icons.add,
+                backgroundcolor: AppColors.mainColor,
+                iconcolor: Colors.white,
+                // size: Dimensions.heightP(0.05),
+                iconsize: Dimensions.heightP(0.035),
+                function: () {},
+              ),
+            ],
+          ),
+        ),
+
+//
+        Container(
+          padding: EdgeInsets.symmetric(
+              vertical: Dimensions.heightP(.03),
+              horizontal: Dimensions.widthP(.03)),
+          height: Dimensions.heightP(.13),
+          // height: 120,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: AppColors.buttonBackgroundColor,
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(Dimensions.heightP(.04)),
+                topRight: Radius.circular(Dimensions.heightP(.04))),
+          ),
+
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            Container(
+                height: Dimensions.heightP(.07),
+                width: Dimensions.widthP(.34),
+                padding: EdgeInsets.symmetric(
+                    horizontal: Dimensions.widthP(.02),
+                    vertical: Dimensions.heightP(.02)),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(
+                    Dimensions.heightP(0.02),
+                  ),
+                ),
+                child: const Icon(
+                  Icons.favorite,
+                  color: AppColors.mainColor,
+                )),
+            Container(
+              height: Dimensions.heightP(.085),
+              width: Dimensions.widthP(.4),
+              padding: EdgeInsets.symmetric(
+                  horizontal: Dimensions.widthP(.02),
+                  vertical: Dimensions.heightP(.02)),
+              decoration: BoxDecoration(
+                color: AppColors.mainColor,
+                borderRadius: BorderRadius.circular(
+                  Dimensions.heightP(0.02),
+                ),
+              ),
+              alignment: Alignment.center,
+              child: BigText(text: '\$ 10 | add to cart', color: Colors.white),
+            )
+          ]),
+        ),
       ]),
     );
   }
