@@ -1,6 +1,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:food_order_app/Screens/Food/popular_food_details.dart';
+import 'package:food_order_app/Screens/Food/recommended_food_detail.dart';
 import 'package:food_order_app/utils/colors.dart';
 import 'package:food_order_app/utils/dimensions.dart';
 import 'package:food_order_app/widgets/app_column.dart';
@@ -96,7 +97,12 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           itemCount: 20,
           shrinkWrap: true,
           itemBuilder: (context, index) {
-            return const ItemCard();
+            return ItemCard(
+              function: () => Navigator.pushNamed(
+                context,
+                RecommendFoodDetail.routeName,
+              ),
+            );
           },
         )
       ],

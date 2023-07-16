@@ -8,12 +8,13 @@ class AppIcon extends StatelessWidget {
       this.backgroundcolor,
       this.iconcolor,
       this.size,
-      this.function});
+      this.function, this.iconsize});
 
   final IconData icon;
   final Color? backgroundcolor;
   final Color? iconcolor;
   final double? size;
+  final double? iconsize;
   final VoidCallback? function;
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class AppIcon extends StatelessWidget {
         ),
         child: Icon(
           icon,
-          size: Dimensions.heightP(.027),
+          size: iconsize ?? Dimensions.heightP(.027),
           color: iconcolor ?? const Color(0xFF756d54),
         ),
       ),
